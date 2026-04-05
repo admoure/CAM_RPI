@@ -40,9 +40,9 @@ Cámara → Raspberry Pi
 - srt_listener.sh  
   * No se usa, solo para pruebas de protocolo SRT directo
 - snapshot.sh  
-  * Editar y cambiar el nombre de la estación ```bash STATION="  "```
+  * Editar y cambiar el nombre de la estación ```STATION="  "```
 - cam_server.py
-  * Editar y cambiar el nombre de la estación ```bash CAM_NAME="  "```  
+  * Editar y cambiar el nombre de la estación ```CAM_NAME="  "```  
 
 ---
 
