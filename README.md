@@ -101,7 +101,7 @@ LABEL=IMAGENES  /mtn/imagenes   ext4    defaults,noatime,nosuid,nofail     0  2
 ```
 ---
 
-## 📝 Logs en RAM
+### 📝 Logs en RAM
 ```bash
 nano /etc/systemd/journald.conf
 ```
@@ -112,7 +112,7 @@ sudo systemctl restart systemd-journald
 ``` 
 ---
 
-## 🕒 NTP (VPN)
+### 🕒 NTP (VPN)
 ```bash
 nano /etc/systemd/timesyncd.conf
 ```
