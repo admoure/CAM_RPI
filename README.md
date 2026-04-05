@@ -127,6 +127,7 @@ Instalar mediamtx en /usr/local/bin/
 ```bash
 git clone <repo>
 cd <repo>
+
 sudo cp etc/mediamtx/mediamtx.yml /etc/mediamtx/
 sudo cp usr/local/bin/. /usr/local/bin/  
 sudo cp etc/systemd/system/. /etc/systemd/system/  
