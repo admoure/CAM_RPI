@@ -1,0 +1,13 @@
+[Unit]
+Description=Camera Publisher
+After=mediamtx.service
+Requires=mediamtx.service
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/cam_publish.sh
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target

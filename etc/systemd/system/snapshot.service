@@ -1,0 +1,7 @@
+[Unit]
+Description=Captura de pantalla local por RTSP
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/snapshot.sh
+

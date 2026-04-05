@@ -1,0 +1,16 @@
+[Unit]
+Description=Servicio para API http
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=pi
+ExecStart=/usr/bin/python3 /usr/local/bin/cam_server.py
+Restart=always
+RestartSec=5
+
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target
