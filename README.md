@@ -40,9 +40,7 @@ Cámara → Raspberry Pi
 - srt_listener.sh  
   * No se usa, solo para pruebas de protocolo SRT directo
 - snapshot.sh  
-  * Editar y cambiar el nombre de la estación ```STATION="  "```
 - cam_server.py
-  * Editar y cambiar el nombre de la estación ```CAM_NAME="  "```  
 
 ---
 
@@ -131,6 +129,7 @@ sudo systemctl start cam_server
 ---
 
 ## 🧪 Logs
+Para ver los logs en tiempo real de cada servicio
 ```bash
 journalctl -u cam-publish -f  
 journalctl -u mediamtx -f  
