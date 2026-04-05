@@ -53,11 +53,11 @@ Debe instalarse manualmente en:
 /usr/local/bin/mediamtx
 
 Ejemplo:
-
+```bash
 wget https://github.com/bluenviron/mediamtx/releases/latest/download/mediamtx_linux_armv7.tar.gz  
 tar -xzf mediamtx_*.tar.gz  
 sudo mv mediamtx /usr/local/bin/
-
+```
 ---
 
 ## 📸 Snapshots
@@ -76,9 +76,9 @@ sudo mv mediamtx /usr/local/bin/
 El sistema no depende del USB → el vídeo sigue funcionando aunque falle  
 
 ### Formato del USB
-
+```bash
 sudo mkfs.ext4 -L IMAGENES /dev/sdX
-
+```
 ### fstab
 
 LABEL=IMAGENES  /mnt/imagenes  ext4  defaults,nofail,noatime  0  2
@@ -87,45 +87,51 @@ LABEL=IMAGENES  /mnt/imagenes  ext4  defaults,nofail,noatime  0  2
 
 ## 🔒 Sistema en modo solo lectura
 
+
 proc            /proc           proc    defaults          0  0
-/dev/mmcblk0p1  /boot           vfat    ro                0  2
-/dev/mmcblk0p2  /               ext4    ro                0  1
+PARTUUID=c77ad1c0-01    /boot/firmware    vfat  defaults    0   2
+PARTUUID=c77ad1c0-02    /                 ext4  defaults,noatime,ro     0  1
 
 tmpfs           /tmp            tmpfs   defaults,noatime,nosuid,size=100m  0  0
-tmpfs           /var/log        tmpfs   defaults,noatime,nosuid,size=50m   0  0
+tmpfs           /var/log        tmpfs   defaults,noatime,nosuid,size=100m  0  0
 tmpfs           /var/tmp        tmpfs   defaults,noatime,nosuid,size=50m   0  0
-tmpfs           /run            tmpfs   defaults,noatime,nosuid,size=50m   0  0
+tmpfs           /var/run        tmpfs   defaults,noatime,nosuid,size=50m   0  0
+
+LABEL=IMAGENES  /mtn/imagenes   ext4    defaults,noatime,nosuid,nofail     0  2
 
 ---
 
 ## 📝 Logs en RAM
-
-/etc/systemd/journald.conf
-
+```bash
+nano /etc/systemd/journald.conf
+```
 Storage=volatile  
 RuntimeMaxUse=50M  
-
+```bash
 sudo systemctl restart systemd-journald
-
+``` 
 ---
 
 ## 🕒 NTP (VPN)
-
-/etc/systemd/timesyncd.conf
-
+```bash
+nano /etc/systemd/timesyncd.conf
+```
 [Time]  
 NTP=10.13.83.136  
-
+```bash
 sudo systemctl restart systemd-timesyncd
-
+```
 ---
 
 ## 🔧 Instalación
 
-1. Instalar mediamtx en /usr/local/bin/
-2. Copiar repo/etc/mediamtx/mediamtx.yml a /etc/mediamtx/
-3. Copiar scripts de repo/usr/local/bin a /usr/local/bin/  
-4. Copiar servicios de repo/etc/systemd/system/ a /etc/systemd/system/  
+Instalar mediamtx en /usr/local/bin/
+```bash
+git clone <repo>
+cd <repo>
+sudo cp etc/mediamtx/mediamtx.yml /etc/mediamtx/
+sudo cp usr/local/bin/. /usr/local/bin/  
+sudo cp etc/systemd/system/. /etc/systemd/system/  
 
 sudo systemctl daemon-reexec  
 sudo systemctl daemon-reload  
@@ -139,15 +145,15 @@ sudo systemctl start mediamtx
 sudo systemctl start cam-publish  
 sudo systemctl start snapshot.timer  
 sudo systemctl start cam_server  
-
+```
 ---
 
-## 🧪 Debug
-
+## 🧪 Logs
+```bash
 journalctl -u cam-publish -f  
 journalctl -u mediamtx -f  
 journalctl -u snapshot -f  
-
+```
 ---
 
 ## 📌 Notas
