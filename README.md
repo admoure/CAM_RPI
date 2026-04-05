@@ -38,8 +38,11 @@ Cámara → Raspberry Pi
 ### 🧠 Scripts
 - cam_publish.sh  
 - srt_listener.sh  
+  * No se usa, solo para pruebas de protocolo SRT directo
 - snapshot.sh  
-- cam_server.py  
+  * Editar y cambiar el nombre de la estación
+- cam_server.py
+  * Crea un servidor HTTP en 8080  
 
 ---
 
@@ -54,8 +57,8 @@ Debe instalarse manualmente en:
 
 Ejemplo:
 ```bash
-wget https://github.com/bluenviron/mediamtx/releases/latest/download/mediamtx_linux_armv7.tar.gz  
-tar -xzf mediamtx_*.tar.gz  
+wget https://github.com/bluenviron/mediamtx/releases/download/v1.17.1/mediamtx_v1.17.1_linux_arm64.tar.gz
+tar -xzf mediamtx_v1.17.1_linux_arm64.tar.gz  
 sudo mv mediamtx /usr/local/bin/
 ```
 ---
@@ -161,8 +164,15 @@ journalctl -u snapshot -f
 - No depende del USB  
 - Minimiza escrituras en SD  
 
+### Puertos expuestos (Abrir en el router)
+
+- RTSP 8554
+- SRT 8890
+- HTTP 8080
+- SSH 22
+
 ---
 
-## 📜 Licencia
+## 👤 Autor
 
-Uso interno / investigación
+IGN / Canarias
