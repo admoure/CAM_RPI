@@ -778,9 +778,9 @@ sudo systemctl restart systemd-timesyncd
 ## 🔧 Instalación
 
 1. Instalar mediamtx en /usr/local/bin
-2. Copiar mediamtx.yml (NO el que viene con mediamtx) a /etc/mediamtx/
-4. Copiar scripts a /usr/local/bin/  
-5. Copiar servicios a /etc/systemd/system/  
+2. Copiar config de mediamtx de repo/etc/mediamtx/mediamtx.yml a /etc/mediamtx/
+3. Copiar scripts de repo/usr/local/bin/ a /usr/local/bin/  
+4. Copiar servicios de repo/etc/systemd/system/ a /etc/systemd/system/  
 
 sudo systemctl daemon-reexec  
 sudo systemctl daemon-reload  
