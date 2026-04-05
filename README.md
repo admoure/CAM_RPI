@@ -746,9 +746,6 @@ PARTUUID=c77ad1c0-02	/		ext4	defaults,noatime,ro	0	1
 tmpfs	/tmp	tmpfs	defaults,noatime,nosuid,size=100m	0	0  
 tmpfs	/var/log	tmpfs	defaults,noatime,nosuid,size=50m	0	0  
 tmpfs	/var/tmp	tmpfs	defaults,noatime,nosuid,size=100m	0	0  
-
-
-
 tmpfs 	/var/run 	tmpfs 	defaults,noatime,nosuid,size=20m 	0 	0  
 
 LABEL=IMAGENES 	/mnt/imagenes 	ext4 	defaults,nofail,noatime 	0 	2  
