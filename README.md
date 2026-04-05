@@ -164,7 +164,7 @@ journalctl -u snapshot -f
 - No depende del USB  
 - Minimiza escrituras en SD  
 
-### Puertos expuestos (Abrir en el router)
+### Puertos expuestos (abrir en el router)
 
 - RTSP 8554
 - SRT 8890
