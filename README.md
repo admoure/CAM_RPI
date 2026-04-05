@@ -87,16 +87,16 @@ LABEL=IMAGENES  /mnt/imagenes  ext4  defaults,nofail,noatime  0  2
 
 ## 🔒 Sistema en modo solo lectura
 
-proc /proc proc defaults 0 0  
-/dev/mmcblk0p1 /boot vfat ro 0 2  
-/dev/mmcblk0p2 / ext4 ro 0 1  
+proc	/proc	proc	defaults	0	0  
+PARTUUID=c77adlc0-01	/boot/firmware	vfat	defaults	0	2  
+PARTUUID=c77ad1c0-02	/		ext4	defaults,noatime,ro	0	1  
 
-tmpfs /tmp tmpfs defaults,noatime,nosuid,size=100m 0 0  
-tmpfs /var/log tmpfs defaults,noatime,nosuid,size=50m 0 0  
-tmpfs /var/tmp tmpfs defaults,noatime,nosuid,size=50m 0 0  
-tmpfs /run tmpfs defaults,noatime,nosuid,size=50m 0 0  
+tmpfs	/tmp	tmpfs	defaults,noatime,nosuid,size=100m	0	0  
+tmpfs	/var/log	tmpfs	defaults,noatime,nosuid,size=50m	0	0  
+tmpfs 	/var/tmp 	tmpfs 	defaults,noatime,nosuid,size=100m 	0 	0 
+tmpfs 	/var/run 	tmpfs 	defaults,noatime,nosuid,size=20m 	0 	0  
 
-LABEL=IMAGENES /mnt/imagenes ext4 defaults,nofail,noatime 0 2  
+LABEL=IMAGENES 	/mnt/imagenes 	ext4 	defaults,nofail,noatime 	0 	2  
 
 ---
 
@@ -125,8 +125,10 @@ sudo systemctl restart systemd-timesyncd
 
 ## 🔧 Instalación
 
-1. Copiar scripts a /usr/local/bin/  
-2. Copiar servicios a /etc/systemd/system/  
+1. Instalar mediamtx en /usr/local/bin
+2. Copiar mediamtx.yml (NO el que viene con mediamtx) a /etc/mediamtx/
+4. Copiar scripts a /usr/local/bin/  
+5. Copiar servicios a /etc/systemd/system/  
 
 sudo systemctl daemon-reexec  
 sudo systemctl daemon-reload  
