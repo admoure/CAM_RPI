@@ -87,7 +87,7 @@ LABEL=IMAGENES  /mnt/imagenes  ext4  defaults,nofail,noatime  0  2
 
 ## 🔒 Sistema en modo solo lectura
 
-
+```bash
 proc            /proc           proc    defaults          0  0
 PARTUUID=c77ad1c0-01    /boot/firmware    vfat  defaults    0   2
 PARTUUID=c77ad1c0-02    /                 ext4  defaults,noatime,ro     0  1
@@ -98,7 +98,7 @@ tmpfs           /var/tmp        tmpfs   defaults,noatime,nosuid,size=50m   0  0
 tmpfs           /var/run        tmpfs   defaults,noatime,nosuid,size=50m   0  0
 
 LABEL=IMAGENES  /mtn/imagenes   ext4    defaults,noatime,nosuid,nofail     0  2
-
+```
 ---
 
 ## 📝 Logs en RAM
