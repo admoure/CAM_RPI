@@ -88,6 +88,52 @@ LABEL=IMAGENES  /mnt/imagenes  ext4  defaults,nofail,noatime  0  2
 
 ---
 
+## 🔧 Instalación
+
+Instalar mediamtx en /usr/local/bin/
+```bash
+git clone <repo>
+cd <repo>
+
+sudo cp etc/mediamtx/mediamtx.yml /etc/mediamtx/
+sudo cp usr/local/bin/. /usr/local/bin/  
+sudo cp etc/systemd/system/. /etc/systemd/system/  
+
+sudo systemctl daemon-reexec  
+sudo systemctl daemon-reload  
+
+sudo systemctl enable mediamtx  
+sudo systemctl enable cam-publish  
+sudo systemctl enable snapshot.timer  
+sudo systemctl enable cam_server  
+
+sudo systemctl start mediamtx  
+sudo systemctl start cam-publish  
+sudo systemctl start snapshot.timer  
+sudo systemctl start cam_server  
+```
+
+Cambiar el nombre de la estación
+
+```bash
+sudo nano /usr/local/bin/snapshot.sh 
+``` 
+```STATION="NOMBRE"```
+```bash
+sudo nano /usr/local/bin/cam_server.py 
+```
+```CAM_NAME="NOMBRE"```
+
+---
+
+## 🧪 Logs
+```bash
+journalctl -u cam-publish -f  
+journalctl -u mediamtx -f  
+journalctl -u snapshot -f  
+```
+---
+
 ## 🔒 Sistema en modo solo lectura
 
 ```bash
@@ -124,39 +170,6 @@ sudo systemctl restart systemd-timesyncd
 ```
 ---
 
-## 🔧 Instalación
-
-Instalar mediamtx en /usr/local/bin/
-```bash
-git clone <repo>
-cd <repo>
-
-sudo cp etc/mediamtx/mediamtx.yml /etc/mediamtx/
-sudo cp usr/local/bin/. /usr/local/bin/  
-sudo cp etc/systemd/system/. /etc/systemd/system/  
-
-sudo systemctl daemon-reexec  
-sudo systemctl daemon-reload  
-
-sudo systemctl enable mediamtx  
-sudo systemctl enable cam-publish  
-sudo systemctl enable snapshot.timer  
-sudo systemctl enable cam_server  
-
-sudo systemctl start mediamtx  
-sudo systemctl start cam-publish  
-sudo systemctl start snapshot.timer  
-sudo systemctl start cam_server  
-```
----
-
-## 🧪 Logs
-```bash
-journalctl -u cam-publish -f  
-journalctl -u mediamtx -f  
-journalctl -u snapshot -f  
-```
----
 
 ## 📌 Notas
 
