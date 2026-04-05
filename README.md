@@ -99,7 +99,6 @@ tmpfs           /var/run        tmpfs   defaults,noatime,nosuid,size=50m   0  0
 
 LABEL=IMAGENES  /mtn/imagenes   ext4    defaults,noatime,nosuid,nofail     0  2
 ```
----
 
 ### 📝 Logs en RAM
 ```bash
@@ -110,7 +109,6 @@ RuntimeMaxUse=50M
 ```bash
 sudo systemctl restart systemd-journald
 ``` 
----
 
 ### 🕒 NTP (VPN)
 ```bash
