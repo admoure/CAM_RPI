@@ -90,7 +90,9 @@ LABEL=IMAGENES  /mnt/imagenes  ext4  defaults,nofail,noatime  0  2
 
 ## 🔧 Instalación
 
-Instalar mediamtx en /usr/local/bin/
+- Instalar mediamtx en /usr/local/bin/
+
+- Clonar el repositorio
 ```bash
 git clone <repo>
 cd <repo>
@@ -98,7 +100,20 @@ cd <repo>
 sudo cp etc/mediamtx/mediamtx.yml /etc/mediamtx/
 sudo cp usr/local/bin/. /usr/local/bin/  
 sudo cp etc/systemd/system/. /etc/systemd/system/  
+```
 
+- Cambiar el nombre de la estación
+```bash
+sudo nano /usr/local/bin/snapshot.sh 
+``` 
+```STATION="NOMBRE"```
+```bash
+sudo nano /usr/local/bin/cam_server.py 
+```
+```CAM_NAME="NOMBRE"```
+
+- Habilitar y activar los servicios
+```bash
 sudo systemctl daemon-reexec  
 sudo systemctl daemon-reload  
 
@@ -112,17 +127,6 @@ sudo systemctl start cam-publish
 sudo systemctl start snapshot.timer  
 sudo systemctl start cam_server  
 ```
-
-Cambiar el nombre de la estación
-
-```bash
-sudo nano /usr/local/bin/snapshot.sh 
-``` 
-```STATION="NOMBRE"```
-```bash
-sudo nano /usr/local/bin/cam_server.py 
-```
-```CAM_NAME="NOMBRE"```
 
 ---
 
